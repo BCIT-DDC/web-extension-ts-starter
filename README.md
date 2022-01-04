@@ -9,18 +9,19 @@
 
 <!-- ABOUT THE PROJECT -->
 
-## Fuzzy Search Example
+## Web Extension Starter
 
-<p align="center">
+<!-- <p align="center">
     <img alt="Search" src="./assets/images/SearchBarScreenshot.JPG" src="./assets/video/SearchBarDemo.gif" width="100%"/>
-</p>
+</p> -->
 
-An example of how to implement client-side fuzzy-search.
+A web extension starter, built with React, Typescript, and Tailwind CSS. Build once, and run on multiple browsers: Google Chrome, Mozilla Firefox, Microsoft Edge, and Brave.
 
 ### Built With
 
 -   ![React](https://img.shields.io/badge/-React-050B1E?&logo=React)
--   ![Next](https://img.shields.io/badge/-Next.js-050B1E?&logo=next.js)
+-   ![TypeScript](https://img.shields.io/badge/-TypeScript-050B1E?&logo=TypeScript)
+-   ![Webpack](https://img.shields.io/badge/-Webpack.js-050B1E?&logo=webpack)
 -   ![TailwindCSS](https://img.shields.io/badge/-Tailwind_CSS-050B1E?&logo=tailwind-css)
 
 <!-- GETTING STARTED -->
@@ -32,28 +33,31 @@ An example of how to implement client-side fuzzy-search.
 Clone this repository:
 
 ```
-git clone git@github.com:BCIT-DDC/fuzzy-search-example.git
+git clone git@github.com:BCIT-DDC/web-extension-ts-starter.git
 ```
 
 Install npm dependencies:
 
 ```
-cd fuzzy-search-example
+cd web-extension-ts-starter
 npm install
 ```
 
-### 2. Start the Next.js Development Server
+### 2. Build the Extension
+
+#### Start the Webpack Development Server
 
 ```
 npm run dev
 ```
 
-The application should now be running on `http://localhost:3000`, as shown below.
+#### Build the Production-Ready Extension
 
-<p align="center">
-    <img alt="Search" src="./assets/images/SearchBarScreenshot-Default.png" src="./assets/video/SearchBarDemo.gif" width="100%"/>
-    
-</p>
+```
+npm run build
+```
+
+The relevant web extension files will be present in the output `.dist/` folder.
 
 <!-- USAGE EXAMPLES -->
 
@@ -69,7 +73,7 @@ The application should now be running on `http://localhost:3000`, as shown below
 
 -   [ ] Add support for Opera
 
-See the [open issues](https://github.com/BCIT-DDC/fuzzy-search-example/issues) for a full list of proposed features (and known issues).
+See the [open issues](https://github.com/BCIT-DDC/web-extension-ts-starter/issues) for a full list of proposed features (and known issues).
 
 <!-- CONTRIBUTING -->
 
@@ -83,8 +87,8 @@ If you would like to contribute, please have a look at our [contributing guideli
 
 This project exists thanks to all the people who contribute.
 <br/>
-<a href="https://github.com/bcit-ddc/fuzzy-search-example/graphs/contributors">
-<img src="https://contrib.rocks/image?repo=bcit-ddc/fuzzy-search-example" width="40" height="40"/>
+<a href="https://github.com/BCIT-DDC/web-extension-ts-starter/graphs/contributors">
+<img src="https://contrib.rocks/image?repo=bcit-ddc/web-extension-ts-starter" width="40" height="40"/>
 </a>
 
 <!-- TESTING -->

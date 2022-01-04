@@ -27,7 +27,7 @@
   "scripts": {
     "build": "npm run clean && webpack --config webpack/webpack.prod.js",
     "clean": "rimraf dist/",
-    "dev": "webpack -w --config webpack/webpack.dev.js",
+    "dev": "npm run clean && webpack -w --config webpack/webpack.dev.js",
     "test": "jest -i --colors --verbose --coverage --detectOpenHandles --passWithNoTests",
     "lint": "eslint --fix -c ./.eslintrc.js \"src/**/*.ts*\"",
     "prettify": "prettier --write \"src/**/*.ts*\""
