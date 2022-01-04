@@ -1,8 +1,6 @@
 import React from 'react';
 
-// // // //
-
-export function Hello() {
+const Hello = () => {
     return (
         <div className="row">
             <div className="text-center col-lg-12">
@@ -10,4 +8,6 @@ export function Hello() {
             </div>
         </div>
     );
-}
+};
+
+export default Hello;

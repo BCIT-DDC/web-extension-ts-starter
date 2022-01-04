@@ -1,3 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    @apply bg-gray-200;
+}
+
 .btn {
     @apply inline-flex;
     @apply items-center;
@@ -19,3 +27,10 @@
     @apply focus:ring-offset-2;
     @apply focus:ring-indigo-500;
 }
+
+.popupContainer {
+    min-width: 300px;
+    min-height: 300px;
+    display: flex;
+}
+

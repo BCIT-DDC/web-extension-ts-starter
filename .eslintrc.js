@@ -27,6 +27,7 @@ module.exports = {
             },
         ],
         'no-underscore-dangle': 'off',
+        "import/no-extraneous-dependencies": ["error", {"devDependencies": true, "optionalDependencies": false, "peerDependencies": false}]
     },
     settings: {
         'import/resolver': {

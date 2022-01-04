@@ -1,10 +1,8 @@
-import React from "react";
-import { Hello } from "@src/components/hello";
-import { browser, Tabs } from "webextension-polyfill-ts";
-import { Scroller } from "@src/components/scroller";
-import css from "./styles.module.css";
+import React from 'react';
 
-// // // //
+import Hello from '@components/Hello';
+import { browser, Tabs } from 'webextension-polyfill-ts';
+import Scroller from '@components/Scroller';
 
 // Scripts to execute in current tab
 const scrollToTopScript = `window.scroll(0,0)`;
@@ -33,14 +31,12 @@ function executeScript(code: string): void {
                     code,
                 })
                 .then(() => {
-                    console.log("Done Scrolling");
+                    console.log('Done Scrolling');
                 });
         });
 }
 
-// // // //
-
-export function Popup() {
+const Popup = () => {
     // Sends the `popupMounted` event
     React.useEffect(() => {
         browser.runtime.sendMessage({ popupMounted: true });
@@ -48,7 +44,7 @@ export function Popup() {
 
     // Renders the component tree
     return (
-        <div className={css.popupContainer}>
+        <div className="popupContainer">
             <div className="mx-4 my-4">
                 <Hello />
                 <hr />
@@ -63,4 +59,6 @@ export function Popup() {
             </div>
         </div>
     );
-}
+};
+
+export default Popup;

@@ -7,19 +7,8 @@
       "rootDir": "./",      
       "strict": true,                    
       "baseUrl": "./",                      
-      "paths": {
-        "@src/*": ["src/*"]
-        // "@config/*": ["src/config/*"],                                 
-        // "@controllers/*": ["src/api/controllers/*"],
-        // "@errors/*": ["src/api/errors/*"],
-        // "@helpers/*": ["src/api/helpers/*"],
-        // "@interfaces/*": ["src/api/interfaces/*"],
-        // "@models/*": ["src/api/models/*"],
-        // "@middleware/*": ["src/api/middleware/*"],
-        // "@routes/*": ["src/api/routes/*"],
-        // "@services/*": ["src/api/services/*"],
-        // "@utils/*": ["src/api/utils/*"],
-        // "@validators/*": ["src/api/validators/*"],
+      "paths": {                              
+        "@components/*": ["src/components/*"],
       }, 
       "jsx": "react",
       "moduleResolution": "node",
@@ -31,10 +20,10 @@
       "pretty": true,
       "skipLibCheck": true,                     
       "forceConsistentCasingInFileNames": true,
-      "types": ["jest"],
+      "types": ["jest", "node"],
       "typeRoots": ["node_modules/@types" ]
     },
-      "include": ["src/**/*.ts", "tests/**/*.ts", "src/**/*.json", "typings.d.ts"],
+      "include": ["src/**/*.ts", "tests/**/*.ts", "src/**/*.tsx", "tests/**/*.tsx", "src/**/*.json", "typings.d.ts"],
       "exclude": ["node_modules"]
   }
   
