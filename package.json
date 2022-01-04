@@ -1,0 +1,93 @@
+{
+  "name": "web-extension-ts-starter",
+  "description": "Web Extension Starter",
+  "version": "1.0.0",
+  "main": "server.ts",
+  "directories": {
+    "lib": "libs",
+    "test": "tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "engines": {
+    "node": ">=12.0.0"
+  },
+  "keywords": [
+    "Extension",
+    "TypeScript",
+    "Firefox",
+    "Chrome",
+    "Brave",
+    "React"
+  ],
+  "author": "BCIT-DDC",
+  "license": "GNUV3",
+  "scripts": {
+    "build": "npm run clean && webpack --config webpack/webpack.prod.js",
+    "clean": "rimraf dist/",
+    "dev": "webpack -w --config webpack/webpack.dev.js",
+    "test": "jest -i --colors --verbose --coverage --detectOpenHandles --passWithNoTests",
+    "lint": "eslint --fix -c ./.eslintrc.js \"src/**/*.ts*\"",
+    "prettify": "prettier --write \"src/**/*.ts*\""
+  },
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.16.7",
+    "@babel/preset-env": "^7.16.7",
+    "@babel/preset-typescript": "^7.16.7",
+    "@types/chrome": "^0.0.174",
+    "@types/eslint": "^8.2.1",
+    "@types/jest": "^27.4.0",
+    "@types/node": "^17.0.7",
+    "@types/react": "^17.0.38",
+    "@types/react-dom": "^17.0.11",
+    "@types/react-test-renderer": "^17.0.1",
+    "@types/webextension-polyfill": "^0.8.2",
+    "@typescript-eslint/eslint-plugin": "^5.9.0",
+    "@typescript-eslint/parser": "^5.9.0",
+    "autoprefixer": "^10.4.1",
+    "babel-core": "^6.26.3",
+    "babel-jest": "^27.4.5",
+    "babel-loader": "^8.2.3",
+    "copy-webpack-plugin": "^10.2.0",
+    "css-loader": "^6.5.1",
+    "eslint": "^8.6.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-import-resolver-typescript": "^2.5.0",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.28.0",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "eslint-plugin-tsdoc": "^0.2.14",
+    "husky": "^7.0.4",
+    "jest": "^27.4.5",
+    "jest-css-modules": "^2.1.0",
+    "module-alias": "^2.2.2",
+    "postcss": "^8.4.5",
+    "postcss-loader": "^6.2.1",
+    "prettier": "^2.5.1",
+    "react-test-renderer": "^17.0.2",
+    "style-loader": "^3.3.1",
+    "tailwindcss": "^3.0.9",
+    "ts-jest": "^27.1.2",
+    "ts-loader": "^9.2.6",
+    "ts-node": "^10.4.0",
+    "ts-node-dev": "^1.1.8",
+    "tsc-alias": "^1.5.0",
+    "tsconfig-paths": "^3.12.0",
+    "typescript": "^4.5.4",
+    "webextension-polyfill-ts": "^0.26.0",
+    "webpack": "^5.65.0",
+    "webpack-cli": "^4.9.1",
+    "webpack-merge": "^5.8.0"
+  },
+  "_moduleAliases": {}
+}

@@ -1,0 +1,11 @@
+/dist
+/.idea
+/coverage
+/node_modules
+.DS_Store
+.env*
+logs
+
+src/api/data/dictionaries
+
+/src/prisma/migrations

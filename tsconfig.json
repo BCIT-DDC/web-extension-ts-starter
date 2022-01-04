@@ -1,0 +1,40 @@
+{
+    "compilerOptions": {
+      "target": "ES5",        
+      "module": "ESNext",                        
+      "lib": ["dom", "dom.iterable", "ESNext"],    
+      "outDir": "./dist/js",  
+      "rootDir": "./",      
+      "strict": true,                    
+      "baseUrl": "./",                      
+      "paths": {
+        "@src/*": ["src/*"]
+        // "@config/*": ["src/config/*"],                                 
+        // "@controllers/*": ["src/api/controllers/*"],
+        // "@errors/*": ["src/api/errors/*"],
+        // "@helpers/*": ["src/api/helpers/*"],
+        // "@interfaces/*": ["src/api/interfaces/*"],
+        // "@models/*": ["src/api/models/*"],
+        // "@middleware/*": ["src/api/middleware/*"],
+        // "@routes/*": ["src/api/routes/*"],
+        // "@services/*": ["src/api/services/*"],
+        // "@utils/*": ["src/api/utils/*"],
+        // "@validators/*": ["src/api/validators/*"],
+      }, 
+      "jsx": "react",
+      "moduleResolution": "node",
+      "declaration": false,
+      "allowSyntheticDefaultImports": true,
+      "esModuleInterop": true,   
+      "experimentalDecorators": true,
+      "emitDecoratorMetadata": true,
+      "pretty": true,
+      "skipLibCheck": true,                     
+      "forceConsistentCasingInFileNames": true,
+      "types": ["jest"],
+      "typeRoots": ["node_modules/@types" ]
+    },
+      "include": ["src/**/*.ts", "tests/**/*.ts", "src/**/*.json", "typings.d.ts"],
+      "exclude": ["node_modules"]
+  }
+  
