@@ -71,6 +71,7 @@
     "jest": "^27.4.5",
     "jest-css-modules": "^2.1.0",
     "module-alias": "^2.2.2",
+    "path-browserify": "^1.0.1",
     "postcss": "^8.4.5",
     "postcss-loader": "^6.2.1",
     "prettier": "^2.5.1",

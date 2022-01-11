@@ -10,30 +10,36 @@ const scrollToBottomScript = `window.scroll(0,9999999)`;
 
 /**
  * Executes a string of Javascript on the current tab
- * @param code The string of code to execute on the current tab
+ * @param code - The string of code to execute on the current tab
  */
-function executeScript(code: string): void {
+async function executeScript(code: string): Promise<void> {
     // Query for the active tab in the current window
-    browser.tabs
-        .query({ active: true, currentWindow: true })
-        .then((tabs: Tabs.Tab[]) => {
-            // Pulls current tab from browser.tabs.query response
-            const currentTab: Tabs.Tab | undefined = tabs[0];
-
-            // Short circuits function execution is current tab isn't found
-            if (!currentTab) {
-                return;
-            }
-
-            // Executes the script in the current tab
-            browser.tabs
-                .executeScript(currentTab.id, {
-                    code,
-                })
-                .then(() => {
-                    console.log('Done Scrolling');
-                });
+    try {
+        const tabs: Tabs.Tab[] = await browser.tabs.query({
+            active: true,
+            currentWindow: true,
         });
+
+        const currentTab: Tabs.Tab | undefined = tabs[0];
+
+        if (!currentTab) {
+            return;
+        }
+
+        console.log(currentTab.url);
+
+        if (currentTab.url?.includes('github')) {
+            console.log('Where on github');
+
+            await browser.tabs.executeScript(currentTab.id, {
+                code,
+            });
+
+            console.log('Done Scrolling');
+        }
+    } catch (error) {
+        console.log(error);
+    }
 }
 
 const Popup = () => {

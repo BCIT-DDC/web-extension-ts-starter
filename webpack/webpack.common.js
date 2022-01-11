@@ -1,8 +1,11 @@
-/* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable no-useless-escape */
+/* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path');
 const CopyPlugin = require('copy-webpack-plugin');
+
+const rootPath = path.join(__dirname, '..');
+const srcPath = path.join(rootPath, 'src');
 
 module.exports = {
     plugins: [
@@ -11,11 +14,16 @@ module.exports = {
         }),
     ],
     entry: {
-        backgroundPage: path.join(__dirname, '..', 'src/backgroundPage.ts'),
-        popup: path.join(__dirname, '..', 'src/popup/index.tsx'),
+        'background.bundle': path.join(srcPath, 'Background', 'index.ts'),
+        'content-script.bundle': path.join(
+            srcPath,
+            'ContentScript',
+            'index.ts',
+        ),
+        popup: path.join(srcPath, 'Popup', 'index.tsx'),
     },
     output: {
-        path: path.join(__dirname, '..', 'dist'),
+        path: path.join(rootPath, 'dist'),
         filename: 'js/[name].js',
     },
     module: {
@@ -50,8 +58,11 @@ module.exports = {
     resolve: {
         extensions: ['.ts', '.tsx', '.js'],
         alias: {
-            '@src': path.resolve(__dirname, '..', 'src/'),
-            '@components': path.resolve(__dirname, '..', 'src/components/'),
+            '@src': path.resolve(rootPath, 'src'),
+            '@components': path.resolve(rootPath, 'src', 'components'),
+        },
+        fallback: {
+            path: require.resolve('path-browserify'),
         },
     },
 };
