@@ -4,8 +4,10 @@ import React from 'react';
 // Removed all existing code from the starter file.
 
 const Popup = () => {
-    return ( 
-    <div><p>Test</p></div>
+    return (
+        <div>
+            <p>Test</p>
+        </div>
     );
 };
 
