@@ -25,9 +25,9 @@ class Popup extends Component {
             document.getElementById('copyText') as HTMLInputElement
         ).value;
         this.setState({ text: newText });
-        if (newText.length != 0) {
+        if (newText.length !== 0) {
             navigator.clipboard.writeText(newText);
-        } else if (newText.length == 0) {
+        } else if (newText.length === 0) {
             navigator.clipboard.writeText('');
         }
     };
