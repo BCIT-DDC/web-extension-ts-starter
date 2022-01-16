@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import io from 'socket.io-client';
 // import { browser, Tabs } from 'webextension-polyfill-ts';
 
-class Popup extends Component {
+function Popup () {
     state = {
         isCode: false,
         text: 'Note-taking is a pretty personal thing. Some people are meticulous in their notebook organization.',
