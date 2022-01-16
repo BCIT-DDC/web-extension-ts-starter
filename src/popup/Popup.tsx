@@ -1,46 +1,61 @@
+/* eslint-disable class-methods-use-this */
 import React, { Component } from 'react';
 import io, { Socket } from 'socket.io-client';
 // import { browser, Tabs } from 'webextension-polyfill-ts';
 
 class Popup extends Component {
     state = {
-        isCode: false,
-        text: 'Note-taking is a pretty personal thing. Some people are meticulous in their notebook organization.',
-        lang: '',
-        key: '',
+        roomId: localStorage.getItem('roomId')
+            ? localStorage.getItem('roomId')
+            : this.generateRoomId(),
+        content: localStorage.getItem('content'),
     };
+
+    serverURL = 'https://revisionsocketserver.herokuapp.com/';
 
     socket: Socket;
 
-    serverURL = 'https://chadsocketserver.herokuapp.com/';
-
     componentDidMount(): void {
-        this.connectToSocket();
+        this.connectSocket();
+        this.socket.on('text', content => {
+            console.log(content);
+        });
     }
 
-    connectToSocket(): void {
-        this.socket = io(this.serverURL);
+    componentDidUpdate() {
+        console.log(this.state.roomId);
+        this.joinRoom();
     }
 
-    generateKey = () => {
-        this.setState({ key: Math.floor(Math.random() * 899999 + 100000) });
-    };
+    connectSocket(): void {
+        const connection = io(this.serverURL);
+        this.socket = connection;
+        this.joinRoom();
+    }
+
+    joinRoom(): void {
+        this.socket.emit('join', this.state.roomId);
+    }
+
+    generateRoomId(): void {
+        const id = Math.floor(Math.random() * 899999 + 100000);
+        this.setState({ roomId: id.toString() });
+        localStorage.setItem('roomId', id.toString());
+    }
 
     delete = () => {
-        this.setState({ text: '' });
+        localStorage.removeItem('content');
         (document.getElementById('copyText') as HTMLInputElement).value = '';
-        (document.getElementById('copyText') as HTMLInputElement).placeholder =
-            'Generate a key and take a screenshot of your notes to start using Study Mate.';
     };
 
     copy = () => {
-        const newText = (
+        const content = (
             document.getElementById('copyText') as HTMLInputElement
         ).value;
-        this.setState({ text: newText });
-        if (newText.length !== 0) {
-            navigator.clipboard.writeText(newText);
-        } else if (newText.length === 0) {
+        localStorage.setItem('content', content);
+        if (content.length !== 0) {
+            navigator.clipboard.writeText(content);
+        } else if (content.length === 0) {
             navigator.clipboard.writeText('');
         }
     };
@@ -56,12 +71,12 @@ class Popup extends Component {
                         <button
                             type="button"
                             className="bg-generateBackground w-generateWidth font-p text-lg text-white rounded-l-lg"
-                            onClick={() => this.generateKey()}
+                            onClick={() => this.generateRoomId()}
                         >
                             Generate
                         </button>
                         <p className="bg-textBoxBackground w-keyWidth px-5 font-p text-lg rounded-r-lg">
-                            {this.state.key}
+                            {localStorage.getItem('roomId')}
                         </p>
                     </div>
                     <form className="p-5 font-p">
@@ -69,8 +84,9 @@ class Popup extends Component {
                             id="copyText"
                             className="p-1 rounded-lg text-base w-textBoxWidth h-textBoxHeight bg-textBoxBackground"
                             name="copyText"
+                            placeholder="Generate a key and take a screenshot of your notes to start using Study Mate."
                         >
-                            {this.state.text}
+                            {localStorage.getItem('content')}
                         </textarea>
                         <div className="p-3 flex flex-row justify-between">
                             <button type="button" onClick={() => this.delete()}>
