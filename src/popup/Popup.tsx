@@ -1,13 +1,26 @@
-import io from 'socket.io-client';
+import React, { Component } from 'react';
+import io, { Socket } from 'socket.io-client';
 // import { browser, Tabs } from 'webextension-polyfill-ts';
 
-function Popup () {
+class Popup extends Component {
     state = {
         isCode: false,
         text: 'Note-taking is a pretty personal thing. Some people are meticulous in their notebook organization.',
         lang: '',
         key: '',
     };
+
+    socket: Socket;
+
+    serverURL = 'https://chadsocketserver.herokuapp.com/';
+
+    componentDidMount(): void {
+        this.connectToSocket();
+    }
+
+    connectToSocket(): void {
+        this.socket = io(this.serverURL);
+    }
 
     generateKey = () => {
         this.setState({ key: Math.floor(Math.random() * 899999 + 100000) });
