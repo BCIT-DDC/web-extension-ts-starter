@@ -3,28 +3,27 @@ import React, { Component } from 'react';
 
 class Popup extends Component {
     state = {
-        isCode: false,
-        text: 'Note-taking is a pretty personal thing. Some people are meticulous in their notebook organization.',
-        lang: '',
-        key: '',
+        roomId: localStorage.getItem('roomId'),
+        content: localStorage.getItem('content'),
     }
 
-    generateKey = () => {
-        this.setState({key: (Math.floor(Math.random() * 899999 + 100000))});
+    generateRoomId = () => {
+        let id = Math.floor(Math.random() * 899999 + 100000);
+        this.setState({roomId: id});
+        localStorage.setItem('roomId', id.toString());
     }
 
     delete = () => {
-        this.setState({text : ""});
+        localStorage.removeItem('content');
         (document.getElementById("copyText") as HTMLInputElement).value = "";
-        (document.getElementById("copyText") as HTMLInputElement).placeholder = "Generate a key and take a screenshot of your notes to start using Study Mate."
     }
 
     copy = () => {
-        let newText = (document.getElementById("copyText") as HTMLInputElement).value;
-        this.setState({text: newText})
-        if (newText.length != 0) {
-            navigator.clipboard.writeText(newText);
-        } else if (newText.length == 0) {
+        let content = (document.getElementById("copyText") as HTMLInputElement).value;
+        localStorage.setItem('content', content)
+        if (content.length != 0) {
+            navigator.clipboard.writeText(content);
+        } else if (content.length == 0) {
             navigator.clipboard.writeText("");
         }
     }
@@ -37,12 +36,12 @@ class Popup extends Component {
             </div>
             <div>
                 <div className="flex flex-row justify-center pt-5">
-                    <button type="button" className="bg-generateBackground w-generateWidth font-p text-lg text-white rounded-l-lg"onClick={() => this.generateKey()}>Generate</button>
-                    <p className="bg-textBoxBackground w-keyWidth px-5 font-p text-lg rounded-r-lg">{this.state.key}</p>
+                    <button type="button" className="bg-generateBackground w-generateWidth font-p text-lg text-white rounded-l-lg"onClick={() => this.generateRoomId()}>Generate</button>
+                    <p className="bg-textBoxBackground w-keyWidth px-5 font-p text-lg rounded-r-lg">{localStorage.getItem('roomId')}</p>
                 </div>
                 <form className="p-5 font-p">
-                    <textarea id="copyText" className="p-1 rounded-lg text-base w-textBoxWidth h-textBoxHeight bg-textBoxBackground" name="copyText">
-                        {this.state.text}
+                    <textarea id="copyText" className="p-1 rounded-lg text-base w-textBoxWidth h-textBoxHeight bg-textBoxBackground" name="copyText" placeholder="Generate a key and take a screenshot of your notes to start using Study Mate.">
+                        {localStorage.getItem('content')}
                     </textarea>
                     <div className="p-3 flex flex-row justify-between">
                         <button type="button" onClick={() => this.delete()}>
