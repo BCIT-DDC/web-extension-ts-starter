@@ -5,7 +5,8 @@
       "lib": ["dom", "dom.iterable", "ESNext"],    
       "outDir": "./dist/js",  
       "rootDir": "./",      
-      "strict": true,                    
+      "strict": true,
+      "strictNullChecks": false,                    
       "baseUrl": "./",                      
       "paths": {                              
         "@components/*": ["src/components/*"],
