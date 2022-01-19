@@ -20,7 +20,7 @@ module.exports = {
             'ContentScript',
             'index.ts',
         ),
-        popup: path.join(srcPath, 'popup', 'index.tsx'),
+        popup: path.join(srcPath, 'Popup', 'index.tsx'),
     },
     output: {
         path: path.join(rootPath, 'dist'),

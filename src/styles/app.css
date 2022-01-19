@@ -1,16 +1,36 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Reem+Kufi:wght@700&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-.container {
-    min-width: 300px;
-    min-height: 310px;
-    display: flex;
+body {
+    @apply bg-gray-200;
 }
 
-textarea {
-    resize: none;
+.btn {
+    @apply inline-flex;
+    @apply items-center;
+    @apply justify-center;
+    @apply px-4;
+    @apply py-2;
+    @apply border;
+    @apply border-transparent;
+    @apply text-sm;
+    @apply font-medium;
+    @apply whitespace-nowrap;
+    @apply rounded-md;
+    @apply shadow-sm;
+    @apply text-white;
+    @apply bg-indigo-600;
+    @apply hover:bg-indigo-700;
+    @apply focus:outline-none;
+    @apply focus:ring-2;
+    @apply focus:ring-offset-2;
+    @apply focus:ring-indigo-500;
+}
+
+.popupContainer {
+    min-width: 300px;
+    min-height: 300px;
+    display: flex;
 }
 
