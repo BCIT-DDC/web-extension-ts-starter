@@ -109,5 +109,10 @@ This project exists thanks to all the people who contribute.
 
 ## Acknowledgments
 
--   [Heroicons](https://heroicons.com/)
--   [Headless UI](https://headlessui.dev/)
+- [Heroicons](https://heroicons.com/)
+- [Headless UI](https://headlessui.dev/)
+
+## Status
+<!-- <p align="center">
+    <img alt="Search" src="https://repobeats.axiom.co/api/embed/67a1ec304f49e3cc25a9b5e5ba7a8e1e04d27e20.svg" width="100%"/>
+</p> -->
