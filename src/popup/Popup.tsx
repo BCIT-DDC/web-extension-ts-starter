@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Hello from '@components/Hello';
-import { browser, Tabs } from 'webextension-polyfill-ts';
+import browser, { Tabs } from 'webextension-polyfill';
 import Scroller from '@components/Scroller';
 
 // Scripts to execute in current tab
